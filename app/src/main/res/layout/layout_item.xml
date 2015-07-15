@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_margin="5dp"
+    android:id="@+id/llItem"
+    android:background="@drawable/item_selector"
+    android:layout_width="match_parent"
+    android:layout_height="120dp">
+
+
+    <LinearLayout
+        android:id="@+id/llItemOk"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imgItem"
+            android:src="@drawable/icon_play"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/llItemDownloadWait"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imgItemDownload"
+            android:src="@drawable/icon_download"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/llItemDownloading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Downloading..."
+            android:src="@drawable/icon_download"/>
+        <com.daimajia.numberprogressbar.NumberProgressBar
+            android:id="@+id/numberPrgressBar"
+            style="@style/NumberProgressBar_Default"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/llItemDownloadError"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Download error"
+            android:src="@drawable/icon_download"/>
+        <Button
+            android:id="@+id/btnRetry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Retry"
+            android:layout_marginTop="8dp"
+            />
+    </LinearLayout>
+
+</LinearLayout>
