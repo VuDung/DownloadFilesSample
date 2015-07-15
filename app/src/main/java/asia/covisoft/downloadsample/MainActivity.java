@@ -37,6 +37,7 @@ public class MainActivity extends ActionBarActivity implements ItemClickListener
     DownloadReceiver receiver;
     List<Item> mItems;
 
+    private static final String ROOT_PATH = Environment.getExternalStorageDirectory().toString() + "/Demo/";
     private static final String TAG = MainActivity.class.getSimpleName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +45,13 @@ public class MainActivity extends ActionBarActivity implements ItemClickListener
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-
-
-
+        File folder = new File(ROOT_PATH);
+        if(folder.exists() && folder.isDirectory()){
+            //folder exist
+        }else{
+            //create folder
+            folder.mkdir();
+        }
     }
 
     @Override
