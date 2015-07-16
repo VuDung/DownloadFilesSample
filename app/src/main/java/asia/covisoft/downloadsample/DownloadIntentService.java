@@ -42,9 +42,28 @@ public class DownloadIntentService extends IntentService{
             //extras.putInt(DownloadAction.ACTION_ID, item.getId());
             broadCastIntent.putExtras(extras);
             sendBroadcast(broadCastIntent);
-            download(item.getId(), item.getVideoUrl(), item.getFilePath());
+
+            DownloadThread download = new DownloadThread(item.getId(), item.getVideoUrl(), item.getFilePath());
+            download.start();
+            //download(item.getId(), item.getVideoUrl(), item.getFilePath());
         }
 
+    }
+
+    private class DownloadThread extends Thread{
+        private int mId;
+        private String mUrl;
+        private String mFilePath;
+        public DownloadThread(int id, String url, String filePath){
+            this.mId = id;
+            this.mUrl = url;
+            this.mFilePath = filePath;
+        }
+        @Override
+        public void run() {
+            super.run();
+            download(mId, mUrl, mFilePath);
+        }
     }
 
     private void download(int id, String videoUrl, String fileOutput){
